@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
 
-function App() {
+import StockData from './components/StockData'
+import Navbar from './components/Navbar'
+import { Route, Routes, useNavigate } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
+
+
+
+const App = () => {
+  const { user,isAuthenticated} = useAuth0();
+
+  const navigate =useNavigate();
+
+
+useEffect(()=>{
+if(isAuthenticated){
+navigate("/stockData")
+}
+},[user,isAuthenticated])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+     <Navbar/>
+ <Routes>
+  <Route path="/stockData" element={<StockData />}/>  
+   
+   </Routes>
+   
+    
+   
+    </>
+  )
 }
 
-export default App;
+export default App

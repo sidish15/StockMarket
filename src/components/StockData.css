@@ -1,0 +1,18 @@
+.box{
+       /* border: 1px solid black; */
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2rem;
+}
+.info{
+/* border: 1px solid black; */
+width: 50vw;
+font-family: Georgia, 'Times New Roman', Times, serif;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.info p{
+        margin: 0;
+       text-align: start;
+}
